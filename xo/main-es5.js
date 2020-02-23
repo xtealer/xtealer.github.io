@@ -253,6 +253,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js"); // DEFAULT APP ROUTE -> '/'
+
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -266,7 +273,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       factory: function AppModule_Factory(t) {
         return new (t || AppModule)();
       },
-      providers: [],
+      providers: [{
+        provide: _angular_common__WEBPACK_IMPORTED_MODULE_7__["APP_BASE_HREF"],
+        useValue: '/xo'
+      }],
       imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"]]]
     });
 
@@ -285,7 +295,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         args: [{
           declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _main_page_main_page_component__WEBPACK_IMPORTED_MODULE_4__["MainPageComponent"], _game_game_component__WEBPACK_IMPORTED_MODULE_5__["GameComponent"]],
           imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"]],
-          providers: [],
+          // OVERRIDE DEFAULT SERVE ROUTE OF APP TO '/xo'
+          providers: [{
+            provide: _angular_common__WEBPACK_IMPORTED_MODULE_7__["APP_BASE_HREF"],
+            useValue: '/xo'
+          }],
           bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         }]
       }], null, null);
