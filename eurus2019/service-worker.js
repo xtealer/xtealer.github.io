@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/eurus2019/precache-manifest.b1a815f588c5dc59954f50461f2e3f03.js"
+  "/eurus2019/precache-manifest.9a6cb7ae7efbeeaa0c31b53dfc416a68.js"
 );
 
 self.addEventListener('message', (event) => {
