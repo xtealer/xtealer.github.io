@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "47b01bd2754270c0bb29c46053a2e1ed",
+    "revision": "a149917ea04489a26355631ceca099e6",
     "url": "/eurus2019/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/eurus2019/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "1c19d5d6ec67d02eab70",
+    "revision": "0de6d4f83b93f32b6ef1",
     "url": "/eurus2019/static/css/main.1614a091.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/eurus2019/static/js/2.8f69bf7a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1c19d5d6ec67d02eab70",
-    "url": "/eurus2019/static/js/main.2dc54732.chunk.js"
+    "revision": "0de6d4f83b93f32b6ef1",
+    "url": "/eurus2019/static/js/main.64c1532e.chunk.js"
   },
   {
     "revision": "3c0b6c1f1a512213895a",
