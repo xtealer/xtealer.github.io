@@ -1,0 +1,3 @@
+[submodule "cars-rental"]
+	path = cars-rental
+	url = git@github.com:xtealer/cars-rental.git
