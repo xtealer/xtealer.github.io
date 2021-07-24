@@ -1,3 +1,6 @@
 [submodule "cars-rental"]
 	path = cars-rental
-	url = git@github.com:xtealer/cars-rental.git
+	url = https://github.com/xtealer/cars-rental.git
+[submodule "xtealer.github.io"]
+	path = xtealer.github.io
+	url = https://github.com/xtealer/xtealer.github.io.git
