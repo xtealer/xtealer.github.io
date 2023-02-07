@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="./xtealer.webmanifest" />
+    <link rel="manifest" href="./manifest.json" />
     <meta name="theme-color" content="#18cae6" />
     <link
       rel="apple-touch-icon"
@@ -22,7 +22,6 @@
       sizes="16x16"
       href="assets/favicons/favicon-16x16.png"
     />
-    <link rel="manifest" href="assets/favicons/site.webmanifest" />
     <link
       href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
       rel="stylesheet"
@@ -183,14 +182,19 @@
           <a class="ph-2 mb-1 text-white" href="./eurus2019" target="_blank">
             Panama Electric Cars
           </a>
-          <a class="ph-2 mb-1 text-white" href="https://datagain.xtealer.xyz" target="_blank">
+          <a
+            class="ph-2 mb-1 text-white"
+            href="https://datagain.xtealer.xyz"
+            target="_blank"
+          >
             Data Gain
           </a>
         </div>
       </div>
     </div>
 
-    <script type="module">
+    <script defer src="./register.js"></script>
+    <script defer type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
@@ -212,13 +216,6 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
-    </script>
-
-    <script>
-      // Registering our Service worker
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("sw.js", { scope: "./" });
-      }
     </script>
   </body>
 </html>
