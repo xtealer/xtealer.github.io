@@ -1,6 +1,6 @@
 /* global caches, fetch, self */
 
-const CACHE_NAME = "xtealer-web-v3.1.0";
+const CACHE_NAME = "xtealer-web-v3.1.1";
 const CACHED_URLS = [
   "/",
   "/index.html",
@@ -77,6 +77,17 @@ self.addEventListener("activate", (event) => {
           .filter((cacheName) => cacheName !== CACHE_NAME)
           .map((cacheName) => caches.delete(cacheName))
       );
+
+      // Show an alert to the user when a new version is activated
+      if (self.registration && self.registration.showNotification) {
+        self.registration.showNotification("New version available!", {
+          body: "Please reload the page to see the latest version.",
+        });
+      } else {
+        alert(
+          "New version available. Please reload the page to see the latest version."
+        );
+      }
     })()
   );
 });
