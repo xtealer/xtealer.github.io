@@ -80,11 +80,6 @@ a:hover {
   margin-top: 40px;
 }
 
-.py-3 {
-  padding-top: 40px !important;
-  padding-bottom: 40px !important;
-}
-
 .mt-4 {
   margin-top: 60px;
 }
@@ -134,4 +129,8 @@ a:hover {
 
 .a-left:hover {
   transform: translateX(-5px);
+}
+
+.parent-container {
+  padding: 3rem 0;
 }

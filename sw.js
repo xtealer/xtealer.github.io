@@ -1,6 +1,6 @@
 /* global caches, fetch, self */
 
-const CACHE_NAME = "xtealer-web-v3.0.9";
+const CACHE_NAME = "xtealer-web-v3.1.0";
 const CACHED_URLS = [
   "/",
   "/index.html",
@@ -48,10 +48,13 @@ self.addEventListener("fetch", (event) => {
 
       const cachedResponse = await cache.match(request);
 
-      // Serve the cached response immediately and fetch a fresh response in the background
+      // Fetch the fresh response in the background
       const fetchPromise = fetch(request)
         .then((networkResponse) => {
-          if (request.url.startsWith(self.location.origin)) {
+          if (
+            networkResponse.ok &&
+            request.url.startsWith(self.location.origin)
+          ) {
             cache.put(request, networkResponse.clone()); // Cache the fetched response
           }
           return networkResponse;
