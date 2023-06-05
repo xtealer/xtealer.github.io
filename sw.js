@@ -1,24 +1,27 @@
 /* global caches, fetch, self */
 
-// Fill here with your cache name-version.
-const CACHE_NAME = "xtealer-web-v3.0.0";
-// This is the list of URLs to be cached by your Progressive Web App.
+const CACHE_NAME = "xtealer-web-v3.0.2";
 const CACHED_URLS = [
   "/",
-  "/index/html",
+  "/index.html",
   "/manifest.json",
   "/register.js",
+  "/firebase.js",
   "/assets/android-chrome-512x512.png",
   "/assets/android-chrome-192x192.png",
 ];
 
-// Open cache on install.
 self.addEventListener("install", (event) => {
   event.waitUntil(
     (async function () {
       const cache = await caches.open(CACHE_NAME);
 
-      await cache.addAll(CACHED_URLS);
+      try {
+        await cache.addAll(CACHED_URLS);
+        console.log("Cached URLs successfully.");
+      } catch (error) {
+        console.error("Caching failed for one or more URLs:", error);
+      }
     })()
   );
 });
@@ -39,20 +42,19 @@ self.addEventListener("fetch", (event) => {
     (async function () {
       const cache = await caches.open(CACHE_NAME);
 
-      const cachedResponsePromise = await cache.match(request);
-      const networkResponsePromise = fetch(request);
+      const cachedResponse = await cache.match(request);
 
-      if (request.url.startsWith(self.location.origin)) {
-        event.waitUntil(
-          (async function () {
-            const networkResponse = await networkResponsePromise;
+      // Serve the cached response immediately and fetch a fresh response in the background
+      const fetchPromise = fetch(request)
+        .then((networkResponse) => {
+          if (request.url.startsWith(self.location.origin)) {
+            cache.put(request, networkResponse.clone()); // Cache the fetched response
+          }
+          return networkResponse;
+        })
+        .catch(() => cachedResponse); // If the network request fails, fallback to the cached response
 
-            await cache.put(request, networkResponse.clone());
-          })()
-        );
-      }
-
-      return cachedResponsePromise || networkResponsePromise;
+      return cachedResponse || fetchPromise;
     })()
   );
 });
@@ -65,11 +67,7 @@ self.addEventListener("activate", (event) => {
 
       await Promise.all(
         cacheNames
-          .filter((cacheName) => {
-            const deleteThisCache = cacheName !== CACHE_NAME;
-
-            return deleteThisCache;
-          })
+          .filter((cacheName) => cacheName !== CACHE_NAME)
           .map((cacheName) => caches.delete(cacheName))
       );
     })()
