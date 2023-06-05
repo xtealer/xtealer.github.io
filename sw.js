@@ -1,6 +1,6 @@
 /* global caches, fetch, self */
 
-const CACHE_NAME = "xtealer-web-v3.0.2";
+const CACHE_NAME = "xtealer-web-v3.0.3";
 const CACHED_URLS = [
   "/",
   "/index.html",
@@ -9,6 +9,10 @@ const CACHED_URLS = [
   "/firebase.js",
   "/assets/android-chrome-512x512.png",
   "/assets/android-chrome-192x192.png",
+  "/assets/favicons/xtealer-round.png",
+  "/assets/favicon.ico",
+  "/assets/images/xtealer-og.jpeg",
+  "/assets/css/styles.css",
 ];
 
 self.addEventListener("install", (event) => {
