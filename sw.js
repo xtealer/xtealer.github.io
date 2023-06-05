@@ -1,6 +1,6 @@
 /* global caches, fetch, self */
 
-const CACHE_NAME = "xtealer-web-v3.0.4";
+const CACHE_NAME = "xtealer-web-v3.0.5";
 const CACHED_URLS = [
   "/",
   "/index.html",
