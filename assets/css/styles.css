@@ -8,11 +8,13 @@ body {
 
 html {
   overflow: hidden;
-  margin-top: 10px;
 }
 
 body {
   overflow-y: auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -22,6 +24,7 @@ h1 {
   margin: 0;
   padding: 10px 0;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 .primary-bg {
@@ -36,15 +39,17 @@ a {
   line-height: 3rem;
   text-decoration: none;
   color: white;
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 a:hover {
-  border: #df740c 2px solid;
+  border-color: #df740c;
   color: #fff;
 }
 
 .center {
   text-align: center;
+  transition: margin-top 0.3s ease;
 }
 
 .a-left {
@@ -75,7 +80,12 @@ a:hover {
   margin-top: 40px;
 }
 
-.mt-3 {
+.py-3 {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.mt-4 {
   margin-top: 60px;
 }
 
@@ -91,8 +101,7 @@ a:hover {
   -ms-user-select: none;
   /* Internet Explorer/Edge */
   user-select: none;
-  /* Non-prefixed version, currently
-supported by Chrome, Opera and Firefox */
+  /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
 
 .ph-2 {
@@ -101,4 +110,28 @@ supported by Chrome, Opera and Firefox */
 
 .d-inblock {
   display: inline-block;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.links-section {
+  animation: fade-in 0.5s ease forwards;
+}
+
+.a-left {
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.a-left:hover {
+  transform: translateX(-5px);
 }
